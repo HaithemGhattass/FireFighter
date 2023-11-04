@@ -366,6 +366,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
+  scoreManager: {fileID: 751902603}
+  crosshairManager: {fileID: 0}
 --- !u!1 &656880745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1205,7 @@ GameObject:
   - component: {fileID: 1604844507}
   - component: {fileID: 1604844509}
   - component: {fileID: 1604844508}
+  - component: {fileID: 1604844510}
   m_Layer: 5
   m_Name: Crosshair
   m_TagString: Untagged
@@ -1267,6 +1270,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604844506}
   m_CullTransparentMesh: 1
+--- !u!114 &1604844510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604844506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d160548a9d81c4548a3228f3e2e12d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshair: {fileID: 1604844506}
 --- !u!1 &1659859597
 GameObject:
   m_ObjectHideFlags: 0

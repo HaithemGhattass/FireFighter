@@ -9,22 +9,19 @@ public class WeaponSwitching : MonoBehaviour
     private Vector3 previousAccelerometerReading; // Store the previous accelerometer reading
     private float selectionCooldown = 1.0f; // 1 second cooldown
     private bool canChangeWeapon = true;
-    private ScoreManager scoreManager; // Reference to the ScoreManager script
-
+    public ScoreManager scoreManager; // Reference to the ScoreManager script
+    public CrosshairManager crosshairManager;
     // Start is called before the first frame update
     void Start()
     {
         previousAccelerometerReading = Input.acceleration;
-        SelectWeapon();
-        scoreManager = FindObjectOfType<ScoreManager>();
-        if (scoreManager.GetScore() == 0)
+        foreach (Transform weapon in transform)
         {
-            foreach (Transform weapon in transform)
-            {
-                weapon.gameObject.SetActive(false);
-            }
-            //    transform.GetChild(selectedWeapon).gameObject.SetActive(false);
+            weapon.gameObject.SetActive(false);
         }
+        scoreManager = FindObjectOfType<ScoreManager>();
+        crosshairManager = FindObjectOfType<CrosshairManager>(); // Find the CrosshairManager script
+
     }
 
     // Update is called once per frame
@@ -33,9 +30,10 @@ public class WeaponSwitching : MonoBehaviour
        
         Vector3 currentAccelerometerReading = Input.acceleration;
         int prevousSelected = selectedWeapon;
+       
 
-    
-        if (scoreManager.GetScore() == 1 && canChangeWeapon && currentAccelerometerReading.x > 0.6)
+
+        if (scoreManager.GetScore() > 0 && canChangeWeapon && currentAccelerometerReading.x > 0.6)
         {
             // Phone has rotated beyond the threshold, switch weapons
             previousAccelerometerReading = currentAccelerometerReading;
@@ -69,8 +67,19 @@ public class WeaponSwitching : MonoBehaviour
         {
             weapon.gameObject.SetActive(false);
         }
-        transform.GetChild(selectedWeapon).gameObject.SetActive(true);
+        if (scoreManager.GetScore() == 1)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.GetChild(selectedWeapon).gameObject.SetActive(true);
+        }
+
+        crosshairManager.crosshair.SetActive(scoreManager.GetScore() > 0);
         
+
+
     }
     private IEnumerator WeaponCooldown()
     {
