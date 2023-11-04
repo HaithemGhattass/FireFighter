@@ -225,7 +225,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: dd15ff64cc6e3489a96c292f478bd1ba,
         type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 512411611}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd15ff64cc6e3489a96c292f478bd1ba, type: 3}
@@ -5156,8 +5156,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512411608}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.65437555, y: -0.27007383, z: -0.6342481, w: 0.3107768}
-  m_LocalPosition: {x: 1.4059002, y: 8.996676, z: -1.7509049}
+  m_LocalRotation: {x: -0.6543755, y: -0.27007383, z: -0.63424814, w: 0.3107768}
+  m_LocalPosition: {x: 1.4059002, y: 8.996676, z: -1.7509052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5226,7 +5226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedWeapon: 0
   scoreManager: {fileID: 751902603}
-  crosshairManager: {fileID: 0}
+  crosshairManager: {fileID: 1604844510}
 --- !u!1 &656880745
 GameObject:
   m_ObjectHideFlags: 0

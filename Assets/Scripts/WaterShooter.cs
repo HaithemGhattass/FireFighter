@@ -13,7 +13,7 @@ public class WaterShooter : MonoBehaviour
     {
         StopShooting();
     }
-    private void Update()
+    void Update()
     {
         if (scoreManager.GetScore() > 0)
         {
@@ -29,6 +29,9 @@ public class WaterShooter : MonoBehaviour
                 {
                     StopShooting();
                 }
+            } else
+            {
+                StopShooting();
             }
 /*
             if (isShooting)
