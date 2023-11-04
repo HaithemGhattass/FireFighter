@@ -33,16 +33,7 @@ public class WaterShooter : MonoBehaviour
             {
                 StopShooting();
             }
-/*
-            if (isShooting)
-            {
-                shootingTimer += Time.deltaTime;
-                if (shootingTimer >= shootingDuration)
-                {
-                    StopShooting();
-                }
-            }
-            */
+
         }
     }
 
