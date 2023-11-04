@@ -2,7 +2,7 @@
 
 public class CrosshairManager : MonoBehaviour
 {
-    public GameObject crosshair; // Reference to the crosshair GameObject
+    public GameObject crosshair; 
 
     private ScoreManager scoreManager; // Reference to the ScoreManager script
 

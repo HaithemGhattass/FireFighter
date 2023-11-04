@@ -28,7 +28,7 @@ public class ARPlacement : MonoBehaviour
             Vector2 screenCenter = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
             List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
-            if (raycastManager.Raycast(screenCenter, hits, TrackableType.PlaneWithinPolygon) && total < 2)
+            if (raycastManager.Raycast(screenCenter, hits, TrackableType.PlaneWithinPolygon) && total < 3)
             {
                 Pose hitPose = hits[0].pose;
                 Vector3 randomOffset = new Vector3(

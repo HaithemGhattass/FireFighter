@@ -55,8 +55,6 @@ public class WeaponSwitching : MonoBehaviour
 
             }
                 
-
-            //UpdateWeaponVisibility();
         }
 
 
@@ -77,8 +75,6 @@ public class WeaponSwitching : MonoBehaviour
         }
 
         crosshairManager.crosshair.SetActive(scoreManager.GetScore() > 0);
-        
-
 
     }
     private IEnumerator WeaponCooldown()
