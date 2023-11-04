@@ -6,6 +6,7 @@
 		<type fullname="ObjectInteraction" preserve="nothing"/>
 		<type fullname="ScoreDisplay" preserve="nothing"/>
 		<type fullname="ScoreManager" preserve="nothing"/>
+		<type fullname="WaterShooter" preserve="nothing"/>
 		<type fullname="WeaponSwitching" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Unity.InputSystem">
@@ -92,6 +93,8 @@
 		<type fullname="UnityEngine.MeshRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.MonoBehaviour" preserve="nothing"/>
 		<type fullname="UnityEngine.Object" preserve="nothing"/>
+		<type fullname="UnityEngine.ParticleSystem" preserve="nothing"/>
+		<type fullname="UnityEngine.ParticleSystemRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.QualitySettings" preserve="nothing"/>
 		<type fullname="UnityEngine.RectTransform" preserve="nothing"/>
 		<type fullname="UnityEngine.Renderer" preserve="nothing"/>

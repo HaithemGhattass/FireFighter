@@ -222,7 +222,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: dd15ff64cc6e3489a96c292f478bd1ba, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: dd15ff64cc6e3489a96c292f478bd1ba,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 512411611}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd15ff64cc6e3489a96c292f478bd1ba, type: 3}
 --- !u!1 &422218013
@@ -330,6 +334,7 @@ GameObject:
   - component: {fileID: 512411611}
   - component: {fileID: 512411610}
   - component: {fileID: 512411609}
+  - component: {fileID: 512411612}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -5151,13 +5156,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512411608}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.1279826, y: -0.46754155, z: -0.8719611, w: 0.068623684}
-  m_LocalPosition: {x: -0.38, y: -1.76, z: 10.05}
+  m_LocalRotation: {x: -0.65437555, y: -0.27007383, z: -0.6342481, w: 0.3107768}
+  m_LocalPosition: {x: 1.4059002, y: 8.996676, z: -1.7509049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 751902602}
   m_LocalEulerAnglesHint: {x: -123.6, y: -163.3, z: 0}
+--- !u!114 &512411612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512411608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25915e68318844618869052e917fa955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 751902603}
+  waterParticleSystem: {fileID: 512411610}
+  shootingDuration: 0.5
 --- !u!1 &546208426
 GameObject:
   m_ObjectHideFlags: 0
@@ -6316,4 +6336,3 @@ SceneRoots:
   - {fileID: 657625617}
   - {fileID: 1719988898}
   - {fileID: 751902604}
-  - {fileID: 512411611}
