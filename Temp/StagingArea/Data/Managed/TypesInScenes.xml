@@ -1,6 +1,7 @@
 <linker>
 	<assembly fullname="Assembly-CSharp">
 		<type fullname="ARPlacement" preserve="nothing"/>
+		<type fullname="CrosshairManager" preserve="nothing"/>
 		<type fullname="ImageScrollController" preserve="nothing"/>
 		<type fullname="ObjectInteraction" preserve="nothing"/>
 		<type fullname="ScoreDisplay" preserve="nothing"/>

@@ -66,6 +66,7 @@
     <Compile Include="Assets/Scripts/menuTranslation.cs" />
     <Compile Include="Assets/Scripts/ScoreDisplay.cs" />
     <Compile Include="Assets/Scripts/WeaponSwitching.cs" />
+    <Compile Include="Assets\Scripts\CrosshairManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
