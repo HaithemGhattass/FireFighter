@@ -11,6 +11,7 @@ using UnityEngine.XR.ARSubsystems;
 public class ARPlacement : MonoBehaviour
 {
     public GameObject[] arObjectToSpawn;
+    public GameObject SettingsToSpawn;
     public ARRaycastManager raycastManager;
     public UnityEngine.Vector3 spawnArea;
     public float spawnInterval = 5.0f;
@@ -34,16 +35,16 @@ public class ARPlacement : MonoBehaviour
 
             if (raycastManager.Raycast(screenCenter, hits, TrackableType.PlaneWithinPolygon))
             {
-                if(scoreManager.GetScore() == 0 && spawningextinguisher == true)
+                if (scoreManager.GetScore() == 0 && spawningextinguisher == true)
                 {
                     Pose hitPose = hits[0].pose;
 
 
-                    UnityEngine.Vector3 spawnPosition = hitPose.position ;
+                    UnityEngine.Vector3 spawnPosition = hitPose.position;
 
                     Instantiate(arObjectToSpawn[0], spawnPosition, UnityEngine.Quaternion.identity);
                     spawningextinguisher = false;
-                  
+
                 }
                 if (scoreManager.GetScore() == 1 && spawningpoly == true)
                 {
@@ -52,11 +53,31 @@ public class ARPlacement : MonoBehaviour
 
                     UnityEngine.Vector3 spawnPosition = hitPose.position;
                     Instantiate(arObjectToSpawn[1], spawnPosition, UnityEngine.Quaternion.identity);
-                    spawningpoly = false; 
+                    spawningpoly = false;
                 }
 
 
             }
+
+        }
+    }
+    public void SpawnSettings()
+    {
+        UnityEngine.Vector2 screenCenter = new UnityEngine.Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+        List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
+        if (raycastManager.Raycast(screenCenter, hits, TrackableType.PlaneWithinPolygon))
+        {
+
+            Pose hitPose = hits[0].pose;
+
+            UnityEngine.Vector3 spawnPosition = hitPose.position;
+
+            Instantiate(SettingsToSpawn, spawnPosition, UnityEngine.Quaternion.identity);
+
+
+
+
 
         }
     }
