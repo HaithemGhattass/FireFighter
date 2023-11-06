@@ -380,7 +380,7 @@ MonoBehaviour:
   m_LastFolders:
   - Packages/com.unity.learn.iet-framework.authoring
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: /Users/haithem/gameDEV/FireFighter
+  m_LastProjectPath: /Users/medamine/GameDev/FireFighter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:

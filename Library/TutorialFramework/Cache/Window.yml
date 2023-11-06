@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentView: TableOfContent
-  PreviousView: 
+  PreviousView: TableOfContent
   DomainReloadOccured: 1
   IsOpen: 1
   AreTestsRunning: 0
