@@ -1,18 +1,22 @@
 
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
 public class ARPlacement : MonoBehaviour
 {
-    public GameObject arObjectToSpawn;
+    public GameObject[] arObjectToSpawn;
     public ARRaycastManager raycastManager;
-    public Vector3 spawnArea;
+    public UnityEngine.Vector3 spawnArea;
     public float spawnInterval = 5.0f;
-    private int total = 0; 
+    public ScoreManager scoreManager; // Reference to the ScoreManager script
+    private bool spawningextinguisher = true;
+    private bool spawningpoly = true;
 
     void Start()
     {
@@ -25,23 +29,35 @@ public class ARPlacement : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnInterval);
 
-            Vector2 screenCenter = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+            UnityEngine.Vector2 screenCenter = new UnityEngine.Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
             List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
-            if (raycastManager.Raycast(screenCenter, hits, TrackableType.PlaneWithinPolygon) && total < 3)
+            if (raycastManager.Raycast(screenCenter, hits, TrackableType.PlaneWithinPolygon))
             {
-                Pose hitPose = hits[0].pose;
-                Vector3 randomOffset = new Vector3(
-                    Random.Range(-spawnArea.x, spawnArea.x),
-                    0.0f,  // Adjust the height as needed
-                    Random.Range(-spawnArea.z, spawnArea.z)
-                );
+                if(scoreManager.GetScore() == 0 && spawningextinguisher == true)
+                {
+                    Pose hitPose = hits[0].pose;
 
-                Vector3 spawnPosition = hitPose.position + randomOffset;
-                total += 1; 
-                Instantiate(arObjectToSpawn, spawnPosition, Quaternion.identity);
+
+                    UnityEngine.Vector3 spawnPosition = hitPose.position ;
+
+                    Instantiate(arObjectToSpawn[0], spawnPosition, UnityEngine.Quaternion.identity);
+                    spawningextinguisher = false;
+                  
+                }
+                if (scoreManager.GetScore() == 1 && spawningpoly == true)
+                {
+                    Pose hitPose = hits[0].pose;
+
+
+                    UnityEngine.Vector3 spawnPosition = hitPose.position;
+                    Instantiate(arObjectToSpawn[1], spawnPosition, UnityEngine.Quaternion.identity);
+                    spawningpoly = false; 
+                }
+
 
             }
+
         }
     }
 }
@@ -106,7 +122,7 @@ public class ARPlacement : MonoBehaviour
     }
     void UpdatePlacementPos()
     {
-        var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+        var screenCenter = Camera.current.ViewportToScreenPoint(new UnityEngine.Vector3(0.5f, 0.5f));
         var hits = new List<ARRaycastHit>();
         aRRaycastManager.Raycast(screenCenter, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
         placementPosIsValid = hits.Count > 0;
@@ -117,7 +133,7 @@ public class ARPlacement : MonoBehaviour
     }
     void ARplaceObject()
     {
-        spawnedObject = Instantiate(arObjectToSpawn, new Vector3(PlacementPose.position.x , PlacementPose.position.y, PlacementPose.position.z), PlacementPose.rotation);
+        spawnedObject = Instantiate(arObjectToSpawn, new UnityEngine.Vector3(PlacementPose.position.x , PlacementPose.position.y, PlacementPose.position.z), PlacementPose.rotation);
     }
 } */
 
@@ -169,7 +185,7 @@ public class ARPlacement : MonoBehaviour
     }
     void UpdatePlacementPos()
     {
-        var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+        var screenCenter = Camera.current.ViewportToScreenPoint(new UnityEngine.Vector3(0.5f, 0.5f));
         var hits = new List<ARRaycastHit>();
         aRRaycastManager.Raycast(screenCenter, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
         placementPosIsValid = hits.Count > 0;

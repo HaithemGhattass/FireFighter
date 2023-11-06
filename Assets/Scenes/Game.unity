@@ -5523,11 +5523,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5742f2444e0a0418ba707fafb20936bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arObjectToSpawn: {fileID: 4075933892604182000, guid: e2dc45cefd44046d7be6bcf9dd3dd571,
-    type: 3}
+  arObjectToSpawn:
+  - {fileID: 4075933892604182000, guid: e2dc45cefd44046d7be6bcf9dd3dd571, type: 3}
+  - {fileID: 919132149155446097, guid: d51ed73c3b5c243dc9c45d13ce0d8261, type: 3}
   raycastManager: {fileID: 1659859601}
   spawnArea: {x: 0, y: 0, z: 0}
-  spawnInterval: 10
+  spawnInterval: 2
+  scoreManager: {fileID: 751902603}
 --- !u!4 &974211528
 Transform:
   m_ObjectHideFlags: 0
