@@ -19,6 +19,7 @@ public class ChangeTextOnClick : MonoBehaviour
             dialogText.text = dialogTexts[currentDialog]; // Update the dialog text.
             dialogButton.text = buttonTexts[currentDialog]; // Update the button text.
             currentDialog++;
+            AudioManager.Instance.playSFX("buttonpress");
         }
         else
         {
