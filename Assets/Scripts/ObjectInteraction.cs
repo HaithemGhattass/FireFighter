@@ -2,6 +2,7 @@ using System.Collections;
 using System.Numerics;
 using TMPro;
 using UnityEngine;
+using UnityEngine.iOS;
 
 public class ObjectInteraction : MonoBehaviour
 {
@@ -35,10 +36,7 @@ public class ObjectInteraction : MonoBehaviour
 
                         if (hit.collider.gameObject.name == objectToPickUp[1].name + "(Clone)")
                         {
-                           // tapToStartText.SetText("Picked up object: "+ objectToPickUp[0].name);
-                            // Perform pickup logic here.
-                            // You may want to deactivate or destroy the object.
-                            //  Destroy(hit.collider.gameObject);
+                           //ADD vibration
 
                             UnityEngine.Vector3 targetPosition = targetTransform.position;
                             float moveSpeed = 2.0f; // Adjust the speed as needed.
@@ -57,10 +55,7 @@ public class ObjectInteraction : MonoBehaviour
 
                         if (hit.collider.gameObject.name == objectToPickUp[0].name + "(Clone)")
                         {
-                           // tapToStartText.SetText("Picked up object: " + objectToPickUp[0].name);
-                            // Perform pickup logic here.
-                            // You may want to deactivate or destroy the object.
-                            //  Destroy(hit.collider.gameObject);
+                       //ADD vibration
 
                             UnityEngine.Vector3 targetPosition = targetTransform.position;
                             float moveSpeed = 2.0f; // Adjust the speed as needed.
