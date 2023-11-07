@@ -42,6 +42,7 @@ public class WaterShooter : MonoBehaviour
         isShooting = true;
         shootingTimer = 0f;
         waterParticleSystem.Play(); // Start the water particle system
+        AudioManager.Instance.playSFX("FireExtinguisher");
     }
 
     private void StopShooting()
@@ -49,5 +50,7 @@ public class WaterShooter : MonoBehaviour
         isShooting = false;
         shootingTimer = 0f;
         waterParticleSystem.Stop(); // Stop the water particle system
+                AudioManager.Instance.stopSFX("FireExtinguisher");
+
     }
 }
