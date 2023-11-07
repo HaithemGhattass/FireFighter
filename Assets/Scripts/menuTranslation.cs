@@ -16,10 +16,14 @@ public class ImageScrollController : MonoBehaviour
     private bool isAnimating = false;
     private bool isGlimpsing = false; // Track if the text is currently glimpsing
     private bool gameStarted = false; // Track if the game has started
+    public GameObject dialogpannel;
+        public GameObject firefighter;
+
+    private bool glimpse = true;
 
     private IEnumerator GlimpseText()
     {
-        while (true) // Continuous glimpse effect
+        while (glimpse) // Continuous glimpse effect
         {
             // Hide the text
             tapToStartText.gameObject.SetActive(false);
@@ -38,29 +42,43 @@ public class ImageScrollController : MonoBehaviour
         StartScrollAnimation();
     }
 
-    private void Update()
+  private void Update()
+{
+    if (isAnimating)
     {
-        if (isAnimating)
+        // Calculate the time elapsed since the animation started
+        float elapsedTime = Time.time - startTime;
+
+        // Calculate the normalized progress (0 to 1) of the animation
+        float t = Mathf.Clamp01(elapsedTime / scrollDuration);
+
+        // Interpolate the position between the start and end positions
+        imageTransform.localPosition = Vector3.Lerp(startPosition, endPosition, t);
+
+        // Check if the animation has finished
+        if (t >= 1.0f)
         {
-            // Calculate the time elapsed since the animation started
-            float elapsedTime = Time.time - startTime;
-
-            // Calculate the normalized progress (0 to 1) of the animation
-            float t = Mathf.Clamp01(elapsedTime / scrollDuration);
-
-            // Interpolate the position between the start and end positions
-            imageTransform.localPosition = UnityEngine.Vector3.Lerp(startPosition, endPosition, t);
-
-            // Check if the animation has finished
-            if (t >= 1.0f)
-            {
-                // Animation is complete
-                isAnimating = false;
-            }
+            // Animation is complete
+            isAnimating = false;
         }
-        else
+    }
+    else
+    {
+        if (!gameStarted)
         {
-            if (!isGlimpsing)
+            if (Input.touchCount > 0)
+            {
+                // Stop the glimpse effect and hide the text
+                StopCoroutine(GlimpseText());
+                isGlimpsing = false;
+                    glimpse = false;
+                tapToStartText.gameObject.SetActive(false);
+                    firefighter.SetActive(false);
+                // Start the game
+                dialogpannel.SetActive(true);
+                gameStarted = true; // Ensure we only start the game once
+            }
+            else if (!isGlimpsing)
             {
                 // Animation has ended, show the "Tap to Start" label
                 tapToStartText.gameObject.SetActive(true);
@@ -70,19 +88,13 @@ public class ImageScrollController : MonoBehaviour
                 StartCoroutine(GlimpseText());
                 isGlimpsing = true;
             }
-
-            if (!gameStarted && Input.touchCount > 0)
-            {
-                // Start the game
-                SceneManager.LoadScene("Game"); // Replace with the actual scene name
-                gameStarted = true; // Ensure we only start the game once
-            }
         }
-
     }
+}
 
     public void StartScrollAnimation()
     {
+        dialogpannel.SetActive(false);
         // Calculate the start and end positions based on the initial position
         startPosition = initialPosition + new UnityEngine.Vector3(0, 900, 0);
         endPosition = initialPosition + new UnityEngine.Vector3(0, -300, 0);
