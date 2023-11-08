@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 512411612}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: WaterParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6126,6 +6126,7 @@ MonoBehaviour:
   arObjectToSpawn:
   - {fileID: 4075933892604182000, guid: e2dc45cefd44046d7be6bcf9dd3dd571, type: 3}
   - {fileID: 3616158943962598733, guid: 9da414f8cc9cd4e75977e12e0ed3f503, type: 3}
+  - {fileID: 2171176031733948826, guid: 851a767ebd2c04bd5afcd0ffa4a69aa1, type: 3}
   SettingsToSpawn: {fileID: 195178286244328753, guid: ec83a75d3c3834035a1ecd96b5c7a14e,
     type: 3}
   raycastManager: {fileID: 1659859601}

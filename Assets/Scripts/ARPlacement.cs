@@ -18,6 +18,8 @@ public class ARPlacement : MonoBehaviour
     public ScoreManager scoreManager; // Reference to the ScoreManager script
     private bool spawningextinguisher = true;
     private bool spawningpoly = true;
+    private bool spawningfire = true;
+
 
     void Start()
     {
@@ -54,7 +56,14 @@ public class ARPlacement : MonoBehaviour
                     UnityEngine.Vector3 spawnPosition = hitPose.position;
                     Instantiate(arObjectToSpawn[1], spawnPosition, UnityEngine.Quaternion.identity);
                     spawningpoly = false;
+                    if(spawningfire == true){
+                     Instantiate(arObjectToSpawn[2], spawnPosition, UnityEngine.Quaternion.identity);
+                    spawningfire = false;
+
+                    }
                 }
+           
+                
 
 
             }
