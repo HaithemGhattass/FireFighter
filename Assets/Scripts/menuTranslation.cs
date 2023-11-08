@@ -71,13 +71,15 @@ public class ImageScrollController : MonoBehaviour
                 isGlimpsing = true;
             }
 
-            if (!gameStarted && Input.touchCount > 0)
+            if (!gameStarted && Input.touchCount > 0 || Input.GetMouseButtonDown(0))
             {
                 // Start the game
-                SceneManager.LoadScene("Game"); // Replace with the actual scene name
+                SceneManager.LoadScene("World"); // Replace with the actual scene name
                 gameStarted = true; // Ensure we only start the game once
             }
+           
         }
+        
 
     }
 

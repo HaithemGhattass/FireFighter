@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EXPBonus : MonoBehaviour
+public class SceneChangeOnClick : MonoBehaviour
 {
     public string sceneNameToLoad; // Name of the scene you want to load
-    
 
-    private void OnMouseDown()
+    private void Update()
     {
-        LoadNewScene();
+        if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 ))
+        {
+            LoadNewScene();
+        }
     }
 
     private void LoadNewScene()
