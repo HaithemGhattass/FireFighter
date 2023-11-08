@@ -40,6 +40,8 @@ public class ObjectInteraction : MonoBehaviour
 
                             UnityEngine.Vector3 targetPosition = targetTransform.position;
                             float moveSpeed = 2.0f; // Adjust the speed as needed.
+                                                    Handheld.Vibrate();
+
                             StartCoroutine(MoveObjectSmoothly(hit.collider.gameObject.transform, targetPosition, moveSpeed));
 
                             StartCoroutine(DisappearObject(hit.collider.gameObject));
@@ -59,6 +61,8 @@ public class ObjectInteraction : MonoBehaviour
 
                             UnityEngine.Vector3 targetPosition = targetTransform.position;
                             float moveSpeed = 2.0f; // Adjust the speed as needed.
+                                                    Handheld.Vibrate();
+
                             StartCoroutine(MoveObjectSmoothly(hit.collider.gameObject.transform, targetPosition, moveSpeed));
 
                             StartCoroutine(DisappearObject(hit.collider.gameObject));
