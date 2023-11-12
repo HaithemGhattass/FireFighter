@@ -4,37 +4,37 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-public class ARPlacementFire : MonoBehaviour
+public class FirePlacement : MonoBehaviour
 {
     public GameObject arObjectToSpawn;
     public GameObject placementIndicator;
     private GameObject spawnedObject;
     private Pose PlacementPose;
-    public GameObject shoot;
+    //public GameObject shoot;
     private ARRaycastManager aRRaycastManager;
     private bool placementPoseIsValid = false;
+
 
     void Start()
     {
         aRRaycastManager = FindObjectOfType<ARRaycastManager>();
-        shoot.SetActive(false);
+      //  shoot.SetActive(false);
     }
 
-    // need to update placement indicator, placement pose and spawn 
     void Update()
     {
-        if (spawnedObject == null && placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        // Automatically spawn the object when a valid placement pose is found
+        if (spawnedObject == null && placementPoseIsValid)
         {
             ARPlaceObject();
-            shoot.SetActive(true);
+          //  shoot.SetActive(true);
+           
         }
-
 
         UpdatePlacementPose();
         UpdatePlacementIndicator();
-
-
     }
+
     void UpdatePlacementIndicator()
     {
         if (spawnedObject == null && placementPoseIsValid)
