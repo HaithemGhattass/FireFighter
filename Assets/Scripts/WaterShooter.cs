@@ -40,7 +40,12 @@ public class WaterShooter : MonoBehaviour
                         StopShooting();
                     }
                  } else {
-                    StopShooting();
+                     StopShooting();
+
+                     if (Input.touchCount > 0){
+                             Handheld.Vibrate();
+                     }
+                   
                    if (!tipPannel.activeSelf && hiding == false){
                     tipPannel.SetActive(true);
                     hiding = true; 
@@ -68,4 +73,5 @@ public class WaterShooter : MonoBehaviour
                 AudioManager.Instance.stopSFX("FireExtinguisher");
 
     }
+
 }

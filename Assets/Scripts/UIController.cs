@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -29,5 +30,13 @@ public class UIController : MonoBehaviour
     {
         isPanelVisible = !isPanelVisible;
         panelToToggle.SetActive(isPanelVisible);
+    }
+    public void ResetScene()
+    {
+        // Get the current scene's index
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Load the current scene to reset it
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }
