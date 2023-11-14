@@ -518,7 +518,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1940134337}
   - component: {fileID: 1940134336}
-  - component: {fileID: 1940134338}
   m_Layer: 0
   m_Name: Package_Spawner_Object
   m_TagString: Untagged
@@ -557,22 +556,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1940134338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940134335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 575c316e9ed184e4498355d1c1e69017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DrivingSurfaceManager: {fileID: 1964602102}
-  Package: {fileID: 0}
-  PackagePrefab: {fileID: 164416, guid: 8aeb2c0224fe763499eed3ec0587162b, type: 3}
-  spawnInterval: 4
 --- !u!1 &1964602097
 GameObject:
   m_ObjectHideFlags: 0
