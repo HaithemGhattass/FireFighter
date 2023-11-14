@@ -1,28 +1,26 @@
 using System.Collections;
 using UnityEngine;
 
-public class WaterShooter : MonoBehaviour
+public class TueauShoot : MonoBehaviour
 {
     public ScoreManager scoreManager; // Reference to the ScoreManager script
     public ParticleSystem waterParticleSystem; // Reference to the water Particle System
     public float shootingDuration = 0.5f; // Duration for shooting
    public FireScore fireScore;
-    public GameObject tipPannel;
-    private bool hiding = false;
+
     private bool isShooting = false;
     private float shootingTimer = 0f;
     void Start()
     {
         StopShooting();
-        tipPannel.SetActive(false);
     }
     void Update()
     {
         
-            if (scoreManager.GetScore() > 0)
+            if (scoreManager.GetScore() > 1)
             {
                
-               if(fireScore.getFireScore() == 0) {
+               if(fireScore.getFireScore() > 0) {
                      if (Input.touchCount > 0)
                     {
                         Touch touch = Input.GetTouch(0);
@@ -41,11 +39,6 @@ public class WaterShooter : MonoBehaviour
                     }
                  } else {
                     StopShooting();
-                   if (!tipPannel.activeSelf && hiding == false){
-                    tipPannel.SetActive(true);
-                    hiding = true; 
-                   }
-                    
 
                     }
 

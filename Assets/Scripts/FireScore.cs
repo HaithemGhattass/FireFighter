@@ -26,4 +26,7 @@ public class FireScore : MonoBehaviour
     public void UpdateFireScore(){
         FireScoreText.text = "Score " + firescore;
     }
+      public int getFireScore() {
+        return firescore;
+    }
 }

@@ -14,8 +14,10 @@ public class ARPlacement : MonoBehaviour
     public GameObject SettingsToSpawn;
     public ARRaycastManager raycastManager;
     public UnityEngine.Vector3 spawnArea;
-    public float spawnInterval = 5.0f;
+    public float spawnInterval = 1.0f;
     public ScoreManager scoreManager; // Reference to the ScoreManager script
+   public FireScore fireScore;
+
     private bool spawningextinguisher = true;
     private bool spawningpoly = true;
     private bool spawningfire = true;
@@ -25,6 +27,31 @@ public class ARPlacement : MonoBehaviour
     {
         StartCoroutine(SpawnObject());
     }
+    void Update(){
+        
+
+            UnityEngine.Vector2 screenCenter = new UnityEngine.Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+            List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
+            if (raycastManager.Raycast(screenCenter, hits, TrackableType.PlaneWithinPolygon))
+            {
+                
+                if (spawningpoly == true && fireScore.getFireScore() == 1 ){
+                    Pose hitPose = hits[0].pose;
+
+                    UnityEngine.Vector3 spawnPosition = hitPose.position;
+
+                       Instantiate(arObjectToSpawn[1], spawnPosition, UnityEngine.Quaternion.identity);
+                    spawningpoly = false;
+                }
+                
+
+            }
+
+        
+   
+    }
+
 
     IEnumerator SpawnObject()
     {
@@ -48,24 +75,8 @@ public class ARPlacement : MonoBehaviour
                     spawningextinguisher = false;
 
                 }
-                if (scoreManager.GetScore() == 1 && spawningpoly == true)
-                {
-                    Pose hitPose = hits[0].pose;
 
-
-                    UnityEngine.Vector3 spawnPosition = hitPose.position;
-                    Instantiate(arObjectToSpawn[1], spawnPosition, UnityEngine.Quaternion.identity);
-                    spawningpoly = false;
-
-                    // if(spawningfire == true){
-                    //  Instantiate(arObjectToSpawn[2], spawnPosition, UnityEngine.Quaternion.identity);
-                    // spawningfire = false;
-
-                 //   }
-                }
-           
                 
-
 
             }
 
@@ -88,9 +99,9 @@ public class ARPlacement : MonoBehaviour
 
 
 
-
         }
     }
+
 }
 
 /*
