@@ -8,11 +8,10 @@ public class ObjectInteraction : MonoBehaviour
 {
     private Camera arCamera;
     public GameObject[] objectToPickUp;
-    public TextMeshProUGUI tapToStartText;
+
     public Transform targetTransform;
     private void Start()
     {
-        tapToStartText.SetText("name: " + objectToPickUp[1].name);
 
         arCamera = Camera.main; // Make sure your AR camera is tagged as "MainCamera."
     }
@@ -32,7 +31,6 @@ public class ObjectInteraction : MonoBehaviour
 
                     if (hit.collider != null)
                     {
-                        tapToStartText.SetText("Hit object: " + hit.collider.gameObject.name);
 
                         if (hit.collider.gameObject.name == objectToPickUp[1].name + "(Clone)")
                         {

@@ -7,10 +7,12 @@ public class ScoreDisplay : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     private ScoreManager scoreManager;
+    public static int scoreCount;
 
     private void Start()
     {
         scoreManager = FindObjectOfType<ScoreManager>();
+        
         UpdateScoreDisplay();
     }
 
@@ -23,7 +25,7 @@ public class ScoreDisplay : MonoBehaviour
     {
         if (scoreText != null && scoreManager != null)
         {
-            scoreText.text = "Score: " + scoreManager.GetScore().ToString();
+            scoreText.text = "Tools: " + scoreManager.GetScore().ToString();
         }
     }
 }

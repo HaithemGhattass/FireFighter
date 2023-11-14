@@ -63,6 +63,6 @@ public class FirePlacement : MonoBehaviour
 
     void ARPlaceObject()
     {
-        spawnedObject = Instantiate(arObjectToSpawn, PlacementPose.position, PlacementPose.rotation);
+        spawnedObject = Instantiate(arObjectToSpawn, new Vector3(PlacementPose.position.x,PlacementPose.position.y,PlacementPose.position.z + 1), PlacementPose.rotation);
     }
 }
