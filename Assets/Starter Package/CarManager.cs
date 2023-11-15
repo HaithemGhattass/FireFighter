@@ -15,9 +15,9 @@
  */
 
 using System.Collections;
-
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using TMPro;
 
 /**
  * Spawns a <see cref="CarBehaviour"/> when a plane is tapped.
@@ -27,7 +27,7 @@ public class CarManager : MonoBehaviour
     public GameObject CarPrefab;
     public ReticleBehaviour Reticle;
     public DrivingSurfaceManager DrivingSurfaceManager;
-
+    public TextMeshPro collectedPackagesText;
     public CarBehaviour Car;
 
     private void Update()
@@ -40,8 +40,23 @@ public class CarManager : MonoBehaviour
             Car.Reticle = Reticle;
             Car.transform.position = Reticle.transform.position;
             DrivingSurfaceManager.LockPlane(Reticle.CurrentPlane);
+            
+        }
+
+        UpdateCollectedPackagesText();
+    }
+    private void UpdateCollectedPackagesText()
+    {
+        if (collectedPackagesText != null)
+        {
+            collectedPackagesText.text = "Collected: " + Car.collected.ToString();
+
+            collectedPackagesText.transform.position = Car.transform.position + Vector3.up * 2.0f; 
+
+            collectedPackagesText.transform.LookAt(Camera.main.transform);
         }
     }
+
 
     private bool WasTapped()
     {

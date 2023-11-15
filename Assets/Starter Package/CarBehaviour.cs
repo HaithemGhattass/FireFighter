@@ -24,6 +24,7 @@ public class CarBehaviour : MonoBehaviour
 {
     public ReticleBehaviour Reticle;
     public float Speed = 1.2f;
+    public int collected = 0;
 
     private void Update()
     {
@@ -46,6 +47,8 @@ public class CarBehaviour : MonoBehaviour
         if (Package != null)
         {
             Destroy(other.gameObject);
+            collected++;
+
         }
     }
 }
