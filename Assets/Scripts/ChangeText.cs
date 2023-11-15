@@ -23,7 +23,7 @@ public class ChangeTextOnClick : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Game"); // Load the "Game" scene when all dialogs are displayed.
+            SceneManager.LoadScene("World"); // Load the "Game" scene when all dialogs are displayed.
         }
     }
 }
