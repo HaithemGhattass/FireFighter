@@ -36,7 +36,7 @@ public class DrivingSurfaceManager : MonoBehaviour
                 plane.gameObject.SetActive(false);
             }
         }
-
+        Debug.Log($"Size of locked plane: {arPlane.size}");
         LockedPlane = arPlane;
         PlaneManager.planesChanged += DisableNewPlanes;
     }
