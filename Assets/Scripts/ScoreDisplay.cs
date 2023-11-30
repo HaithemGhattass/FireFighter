@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreDisplay : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class ScoreDisplay : MonoBehaviour
         if (scoreText != null && scoreManager != null)
         {
             scoreText.text = "Tools: " + scoreManager.GetScore().ToString();
+            if(scoreManager.GetScore() == 3){
+                        SceneManager.LoadScene("DemoScene");
+
+            }
         }
     }
 }
